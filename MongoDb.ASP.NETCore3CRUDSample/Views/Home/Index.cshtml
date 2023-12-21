@@ -1,0 +1,58 @@
+﻿@model List<MongoDb.ASP.NETCore3CRUDSample.DataAccess.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of Customers</h1>
+
+<h2>@TempData["Message"]</h2>
+
+<p>
+    <a asp-action="Insert">Create New Customer</a>
+</p>
+<table class="table">
+      <thead>
+            <tr>
+               
+                <th>
+                   CustomerID
+                </th>
+                <th>
+                   Name
+                </th>
+                <th>
+                   Age
+                </th>
+                <th>
+                   Salary
+                </th>
+            </tr>
+        </thead>
+      <tbody>
+          @foreach (var item in Model)
+          {
+
+              <tr>
+                  <td>
+                      @Html.DisplayFor(modelItem => item.CustomerID)
+                  </td>
+                  <td>
+                      @Html.DisplayFor(modelItem => item.Name)
+                  </td>
+                  <td>
+                      @Html.DisplayFor(modelItem => item.Age)
+                  </td>
+                  <td>
+                      @Html.DisplayFor(modelItem => item.Salary)
+                  </td>
+                  <td>
+                      @Html.ActionLink("Update", "Update", new { id = item.CustomerID }) |
+                      @*  @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                      @Html.ActionLink("Delete", "ConfirmDelete", new { id = item.CustomerID })
+                  </td>
+              </tr>
+          }
+          </tbody>
+    
+</table>

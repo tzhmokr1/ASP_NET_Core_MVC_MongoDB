@@ -1,0 +1,35 @@
+﻿@model MongoDb.ASP.NETCore3CRUDSample.DataAccess.Models.Customer
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+
+    <h4>Customer</h4>
+    <hr />
+    <form asp-action="Delete" asp-controller="Home" method="post">
+        @*<input type="hidden" name="Id"
+               value="@Model.Id.ToString()" />*@
+        <table>
+            <tr>
+                <td><label asp-for="CustomerID" class="custom-control-label"></label></td>
+                <td>@Model.CustomerID</td>
+            </tr>
+            <tr>
+                <td><label asp-for="Name" class="custom-control-label"></label></td>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <td><label asp-for="Age" class="custom-control-label"></label></td>
+                <td>@Model.Age</td>
+            </tr>
+            <tr>
+                <td><label asp-for="Salary" class="custom-control-label"></label></td>
+                <td>@Model.Salary</td>
+            </tr>
+        </table>
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>

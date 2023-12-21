@@ -1,0 +1,53 @@
+﻿@model MongoDb.ASP.NETCore3CRUDSample.DataAccess.Models.Customer
+
+@{
+    ViewData["Title"] = "GetCustomer";
+}
+
+<h1>GetCustomer</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                CustomerID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+               Age
+            </th>
+            <th>
+                Salary
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(m=> @Model.CustomerID)
+            </td>
+            <td>
+                @Html.DisplayFor(m =>  @Model.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => @Model.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(m  => @Model.Salary)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Update", new { id = @Model.CustomerID }) |
+                @*  @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Delete", "ConfirmDelete", new { id = @Model.CustomerID })
+            </td>
+        </tr>
+
+    </tbody>
+</table>
